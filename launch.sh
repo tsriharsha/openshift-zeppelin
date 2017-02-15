@@ -10,4 +10,6 @@ export NSS_WRAPPER_GROUP=/etc/group
 
 export LD_PRELOAD=libnss_wrapper.so
 
+export MASTER=$SPARK_MASTER_ADDRESS
+
 exec /opt/zeppelin/bin/zeppelin.sh

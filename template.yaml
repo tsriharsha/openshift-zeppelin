@@ -41,11 +41,14 @@ objects:
       spec:
         containers:
           - name: zeppelin
-            image: mattf/openshift-zeppelin
+            image: crobby/openshift-zeppelin
             ports:
               - name: zeppelin-web
                 protocol: TCP
                 containerPort: 8080
+            env:
+              - name: SPARK_MASTER_ADDRESS
+                value: spark://${SPARK_CLUSTER_NAME}:7077
 
 - kind: Route
   apiVersion: v1
@@ -59,3 +62,7 @@ objects:
       kind: Service
       name: zeppelin-web
 
+parameters:
+- name: SPARK_CLUSTER_NAME
+  description: Name of spark cluster to run against
+  required: true
