@@ -49,6 +49,8 @@ objects:
             env:
               - name: SPARK_MASTER_ADDRESS
                 value: spark://${SPARK_CLUSTER_NAME}:7077
+              - name: SPARK_IMAGE
+                value: ${SPARK_CLUSTER_IMAGE}
 
 - kind: Route
   apiVersion: v1
@@ -66,3 +68,6 @@ parameters:
 - name: SPARK_CLUSTER_NAME
   description: Name of spark cluster to run against
   required: true
+- name: SPARK_CLUSTER_IMAGE
+  description: Full name of the spark image to use when creating clusters
+  value: radanalyticsio/openshift-spark
