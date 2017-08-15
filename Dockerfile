@@ -2,6 +2,8 @@ FROM centos:latest
 
 MAINTAINER Sriharsha Tikkireddy <tsriharsha@gmail.com>
 
+RUN echo nameserver 8.8.8.8 > /etc/resolv.conf
+
 RUN yum install -y epel-release tar which java golang make git python-devel && \
     yum clean all
 
