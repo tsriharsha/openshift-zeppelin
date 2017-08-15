@@ -41,7 +41,7 @@ objects:
       spec:
         containers:
           - name: zeppelin
-            image: crobby/openshift-zeppelin
+            image: tsriharsha/openshift-zeppelin
             ports:
               - name: zeppelin-web
                 protocol: TCP
