@@ -2,13 +2,9 @@ FROM centos:latest
 
 MAINTAINER Sriharsha Tikkireddy <tsriharsha@gmail.com>
 
-RUN yum install -y epel-release tar which java golang make git python-devel && \
-    yum clean all
+RUN yum install -y epel-release tar which java golang make git python-devel && yum clean all
 
-RUN cd /opt && \
-    curl https://archive.apache.org/dist/zeppelin/zeppelin-0.7.2/zeppelin-0.7.2-bin-all.tgz | \
-       tar -zx && \
-    ln -s zeppelin-0.7.2-bin-all zeppelin
+RUN cd /opt && curl https://archive.apache.org/dist/zeppelin/zeppelin-0.7.2/zeppelin-0.7.2-bin-all.tgz | tar -zx && ln -s zeppelin-0.7.2-bin-all zeppelin
 
 RUN yum install -y tkinter python-pip && yum clean all
 
